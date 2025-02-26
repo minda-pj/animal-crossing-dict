@@ -35,6 +35,7 @@ jobs:
           # SSH를 통해 EC2에서 명령어 실행
           ssh -i github_action.pem -o StrictHostKeyChecking=no $USER@$HOST << 'EOF'
             cd ~/animal-crossing-dict
+            npm install
             npm run build
             pm2 restart next-app || pm2 start node --name "next-app" -- .output/server/index.mjs
           EOF
