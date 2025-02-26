@@ -26,14 +26,14 @@ jobs:
           HOST: ${{ secrets.EC2_PROD_HOST }}
           USER: ${{ secrets.EC2_PROD_USER }}
         run: |
-          echo "$PRIVATE_KEY" > github_action.pem
-          chmod 600 github_action.pem
+          echo "$PRIVATE_KEY" > minda.pem
+          chmod 600 minda.pem
 
           # node_modules 제외하고 파일 전송
-          rsync -avz --exclude=node_modules --exclude=.git -e "ssh -i github_action.pem -o StrictHostKeyChecking=no" . $USER@$HOST:~/animal-crossing-dict/
+          rsync -avz --exclude=node_modules --exclude=.git -e "ssh -i minda.pem -o StrictHostKeyChecking=no" . $USER@$HOST:~/animal-crossing-dict/
 
           # SSH를 통해 EC2에서 명령어 실행
-          ssh -i github_action.pem -o StrictHostKeyChecking=no $USER@$HOST << 'EOF'
+          ssh -i minda.pem -o StrictHostKeyChecking=no $USER@$HOST << 'EOF'
             cd ~/animal-crossing-dict
             npm run build
             pm2 restart next-app || pm2 start node --name "next-app" -- .output/server/index.mjs
