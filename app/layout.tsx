@@ -1,7 +1,13 @@
 import Providers from "@/lib/providers";
 import StyledComponentsRegistry from "@/lib/registry";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+import "@/assets/sass/main.scss";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html>
       <body>
