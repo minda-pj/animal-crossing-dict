@@ -30,7 +30,7 @@ export const DetailModal = () => {
         </DetailModalCloseButton>
         <DetailModalTitleWrap>
           <Leaf size={24} color="#7dce82" />
-          <DetailModalTitle>붕어</DetailModalTitle>
+          <DetailModalTitle>Crucian Carp</DetailModalTitle>
           <Leaf size={24} color="#7dce82" />
         </DetailModalTitleWrap>
         <DetailInfoWrap>
@@ -39,47 +39,51 @@ export const DetailModal = () => {
             <DetailInfoTextUl>
               <DetailInfoTextLi>
                 <DetailInfoText>
-                  <DetailInfoTextBold>가격:</DetailInfoTextBold>
-                  160 벨
+                  <DetailInfoTextBold>Piace:</DetailInfoTextBold>
+                  160 Bell
                 </DetailInfoText>
               </DetailInfoTextLi>
               <DetailInfoTextLi>
                 <DetailInfoText>
-                  <DetailInfoTextBold>위치:</DetailInfoTextBold>강
+                  <DetailInfoTextBold>Location:</DetailInfoTextBold>River
                 </DetailInfoText>
               </DetailInfoTextLi>
               <DetailInfoTextLi>
                 <DetailInfoText>
-                  <DetailInfoTextBold>그림자 크기:</DetailInfoTextBold>
-                  작음
+                  <DetailInfoTextBold>Shadow Size:</DetailInfoTextBold>
+                  Small
                 </DetailInfoText>
               </DetailInfoTextLi>
               <DetailInfoTextLi>
                 <DetailInfoText>
-                  <DetailInfoTextBold>출현 시간:</DetailInfoTextBold>
-                  항상
+                  <DetailInfoTextBold>Appearance Time:</DetailInfoTextBold>
+                  All Time
                 </DetailInfoText>
               </DetailInfoTextLi>
               <DetailInfoTextLi>
                 <DetailInfoText>
-                  <DetailInfoTextBold>북반구 출현 월:</DetailInfoTextBold>
-                  1월-12월
+                  <DetailInfoTextBold>
+                    Northern Hemisphere Appearance Month:
+                  </DetailInfoTextBold>
+                  January - December
                 </DetailInfoText>
               </DetailInfoTextLi>
               <DetailInfoTextLi>
                 <DetailInfoText>
-                  <DetailInfoTextBold>남반구 출현 월:</DetailInfoTextBold>
-                  1월-12월
+                  <DetailInfoTextBold>
+                    Southern Hemisphere Appearance Month:
+                  </DetailInfoTextBold>
+                  January - December
                 </DetailInfoText>
               </DetailInfoTextLi>
             </DetailInfoTextUl>
           </DetailInfoInner>
           <DetailInfoCommentWrap>
-            <DetailInfoCommentTitle>댓글</DetailInfoCommentTitle>
+            <DetailInfoCommentTitle>Comment</DetailInfoCommentTitle>
             <DetailInfoCommentInputWrap>
-              <DetailInfoCommentInput placeholder="이름" />
-              <DetailInfoCommentInput placeholder="댓글 작성..." />
-              <DetailInfoCommentButton>댓글 작성</DetailInfoCommentButton>
+              <DetailInfoCommentInput placeholder="Name" />
+              <DetailInfoCommentInput placeholder="Add Comment..." />
+              <DetailInfoCommentButton>Add Comment</DetailInfoCommentButton>
             </DetailInfoCommentInputWrap>
           </DetailInfoCommentWrap>
         </DetailInfoWrap>
