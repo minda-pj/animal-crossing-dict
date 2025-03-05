@@ -1,11 +1,9 @@
-import Main from "./components/Main";
-// import styles from "./page.module.css";
+import { DetailModal } from "./components/DetailModal";
 
 export default function Home() {
   return (
-    // <div className={styles.page}>
     <div>
-      <Main />
+      <DetailModal />
     </div>
   );
 }
