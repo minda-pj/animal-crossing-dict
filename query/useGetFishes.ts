@@ -1,10 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import instance from "@/api";
 
-const useGetFishes = () => {
+interface TUseGetFishes {
+  enabled: boolean;
+}
+
+const useGetFishes = ({ enabled }: TUseGetFishes) => {
   return useQuery({
     queryKey: ["fishes"],
     queryFn: () => instance.get("/nh/fish"),
+    enabled,
   });
 };
 
