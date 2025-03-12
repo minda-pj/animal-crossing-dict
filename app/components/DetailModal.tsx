@@ -24,6 +24,7 @@ import { X, Leaf } from "lucide-react";
 import useGetBug from "@/query/useGetBug";
 import useGetFishes from "@/query/useGetFish";
 import useGetFossil from "@/query/useGetFossil";
+import { useRouter } from "next/navigation";
 
 interface DetailModalPorps {
   category: string;
@@ -54,10 +55,17 @@ export const DetailModal = ({ category, id }: DetailModalPorps) => {
     }
   };
 
+  const router = useRouter();
+
+  // 모달 닫기 이벤트
+  const handleClickModalClose = () => {
+    router.push("/");
+  };
+
   return (
     <DetailModalWrap>
       <DetailModalContent>
-        <DetailModalCloseButton>
+        <DetailModalCloseButton onClick={handleClickModalClose}>
           <X className="close-icon" size={16} color="black" />
         </DetailModalCloseButton>
         <DetailModalTitleWrap>
