@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   DetailInfoCommentButton,
   DetailInfoCommentInput,
@@ -25,6 +25,7 @@ import useGetBug from "@/query/useGetBug";
 import useGetFishes from "@/query/useGetFish";
 import useGetFossil from "@/query/useGetFossil";
 import { useRouter } from "next/navigation";
+import useGetVillagers from "@/query/useGetVillagers";
 
 interface DetailModalPorps {
   category: string;
@@ -32,28 +33,33 @@ interface DetailModalPorps {
 }
 
 export const DetailModal = ({ category, id }: DetailModalPorps) => {
-  const [detailInfo, setDetailInfo] = useState(null);
+  const bugQuery = useGetBug(id);
+  const fishQuery = useGetFishes(id);
+  const fossilQuery = useGetFossil(id);
+  const villagerQuery = useGetVillagers({ enabled: true });
 
-  useEffect(() => {
-    fetchDetail(category, id);
-  }, []);
+  const data = useMemo(() => {
+    switch (category) {
+      case "bug":
+        return bugQuery.data;
+      case "fish":
+        return fishQuery.data;
+      case "fossils":
+        return fossilQuery.data;
+      case "villager":
+        const villagerData = villagerQuery.data;
 
-  const fetchDetail = async (category: string, id: string) => {
-    try {
-      switch (category) {
-        case "bug":
-          return useGetBug(id);
-        case "fish":
-          return useGetFishes(id);
-        case "fossils":
-          return useGetFossil(id);
-      }
-    } catch (err: any) {
-      if (err instanceof Error) {
-        console.error(err.message);
-      }
+        if (villagerData) {
+          const filterVillager = villagerData.data.filter(
+            (villager) => villager.id === id
+          );
+
+          return filterVillager.length ? filterVillager[0] : null;
+        }
+      default:
+        return null;
     }
-  };
+  }, [category]);
 
   const router = useRouter();
 
@@ -70,12 +76,14 @@ export const DetailModal = ({ category, id }: DetailModalPorps) => {
         </DetailModalCloseButton>
         <DetailModalTitleWrap>
           <Leaf size={24} color="#7dce82" />
-          <DetailModalTitle>Crucian Carp</DetailModalTitle>
+          <DetailModalTitle>{data.name}</DetailModalTitle>
           <Leaf size={24} color="#7dce82" />
         </DetailModalTitleWrap>
         <DetailInfoWrap>
           <DetailInfoInner>
-            <DetailInfoImageWrap></DetailInfoImageWrap>
+            <DetailInfoImageWrap>
+              <img src={data.image_url} alt={data.name} />
+            </DetailInfoImageWrap>
             <DetailInfoTextUl>
               <DetailInfoTextLi>
                 <DetailInfoText>

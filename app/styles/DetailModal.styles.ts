@@ -88,10 +88,18 @@ export const DetailInfoInner = styled.div`
 export const DetailInfoImageWrap = styled.div`
   width: 192px;
   height: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 0.25rem solid rgb(255, 245, 99);
   border-radius: 62.4375rem;
   box-shadow: 0 4px 20px #2445b426;
+  overflow: hidden;
   background-color: #eaeaea;
+
+  img {
+    width: 60%;
+  }
 `;
 
 export const DetailInfoTextUl = styled.ul`
