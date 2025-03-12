@@ -6,6 +6,7 @@ import Navigator from "./Navigator";
 import SearchBar from "./SearchBar";
 import ItemList from "./ItemList";
 import styled from "styled-components";
+import { DetailModal } from "./DetailModal";
 
 const Main = () => {
   const [category, setCategory] = useState<TCategory>("villager");
@@ -20,6 +21,7 @@ const Main = () => {
         <Navigator category={category} setCategory={setCategory} />
         <SearchBar searchWordRef={searchWordRef} searchItem={searchItem} />
         <ItemList category={category} />
+        <DetailModal />
       </MainWrapper>
     </MainContainer>
   );

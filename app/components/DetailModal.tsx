@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   DetailInfoCommentButton,
   DetailInfoCommentInput,
@@ -20,8 +21,39 @@ import {
   DetailModalWrap,
 } from "../styles/DetailModal.styles";
 import { X, Leaf } from "lucide-react";
+import useGetBug from "@/query/useGetBug";
+import useGetFishes from "@/query/useGetFish";
+import useGetFossil from "@/query/useGetFossil";
 
-export const DetailModal = () => {
+interface DetailModalPorps {
+  category: string;
+  id: string;
+}
+
+export const DetailModal = ({ category, id }: DetailModalPorps) => {
+  const [detailInfo, setDetailInfo] = useState(null);
+
+  useEffect(() => {
+    fetchDetail(category, id);
+  }, []);
+
+  const fetchDetail = async (category: string, id: string) => {
+    try {
+      switch (category) {
+        case "bug":
+          return useGetBug(id);
+        case "fish":
+          return useGetFishes(id);
+        case "fossils":
+          return useGetFossil(id);
+      }
+    } catch (err: any) {
+      if (err instanceof Error) {
+        console.error(err.message);
+      }
+    }
+  };
+
   return (
     <DetailModalWrap>
       <DetailModalContent>
