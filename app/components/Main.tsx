@@ -6,22 +6,32 @@ import Navigator from "./Navigator";
 import SearchBar from "./SearchBar";
 import ItemList from "./ItemList";
 import styled from "styled-components";
+import { useSearchParams } from "next/navigation";
+import { DetailModal } from "./DetailModal";
 
 const Main = () => {
+  const searchParams = useSearchParams();
   const [category, setCategory] = useState<TCategory>("villager");
   const searchWordRef = useRef<HTMLDivElement>(null);
+
+  const mCategory = searchParams.get("category");
+  const mId = searchParams.get("id");
 
   const searchItem = () => {};
 
   return (
-    <MainContainer>
-      <MainWrapper>
-        <Title />
-        <Navigator category={category} setCategory={setCategory} />
-        <SearchBar searchWordRef={searchWordRef} searchItem={searchItem} />
-        <ItemList category={category} />
-      </MainWrapper>
-    </MainContainer>
+    <>
+      {mCategory && mId && <DetailModal category={mCategory} id={mId} />}
+
+      <MainContainer>
+        <MainWrapper>
+          <Title />
+          <Navigator category={category} setCategory={setCategory} />
+          <SearchBar searchWordRef={searchWordRef} searchItem={searchItem} />
+          <ItemList category={category} />
+        </MainWrapper>
+      </MainContainer>
+    </>
   );
 };
 
