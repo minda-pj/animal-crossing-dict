@@ -44,7 +44,7 @@ const ItemList = ({ category }: TItemList) => {
   return (
     <ItemListContainer>
       {(data || [])?.map((item) => (
-        <Item data={item} key={item.id + item.name} />
+        <Item data={item} key={item.id + item.url} />
       ))}
     </ItemListContainer>
   );
