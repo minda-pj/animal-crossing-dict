@@ -39,6 +39,7 @@ const MainContainer = styled.main`
   margin: 0 auto;
   padding: 4rem;
 `;
+
 const MainWrapper = styled.div`
   background: white;
   box-shadow: 0 4px 20px #2445b426;
