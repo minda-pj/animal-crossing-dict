@@ -1,13 +1,20 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 import styled from "styled-components";
 
 interface TItem {
   data: any;
+  category: TCategory;
 }
-const Item = ({ data }: TItem) => {
+const Item = ({ data, category }: TItem) => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push(`?category=${category}&id=${data.id}`);
+  };
+
   return (
-    <ItemContainer>
+    <ItemContainer onClick={handleClick}>
       <ItemName>{data.name}</ItemName>
       <ItemBody>
         <ItemImageWrapper>
