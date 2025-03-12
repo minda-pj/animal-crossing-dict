@@ -1,9 +1,9 @@
-import { DetailModal } from "./components/DetailModal";
+import Main from "./components/Main";
 
 export default function Home() {
   return (
     <div>
-      <DetailModal />
+      <Main />
     </div>
   );
 }
