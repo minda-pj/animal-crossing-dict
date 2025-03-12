@@ -1,22 +1,50 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useRef, useState } from "react";
 import Title from "./Title";
 import Navigator from "./Navigator";
 import SearchBar from "./SearchBar";
 import ItemList from "./ItemList";
-
-type TCategory = "total" | "character" | "fish" | "bug" | "furniture" | "fossil";
+import styled from "styled-components";
+import { useSearchParams } from "next/navigation";
+import { DetailModal } from "./DetailModal";
 
 const Main = () => {
-  const [category, setCategory] = useState<TCategory>("total");
+  const searchParams = useSearchParams();
+  const [category, setCategory] = useState<TCategory>("villager");
+  const searchWordRef = useRef<HTMLDivElement>(null);
+
+  const mCategory = searchParams.get("category");
+  const mId = searchParams.get("id");
+
+  const searchItem = () => {};
 
   return (
-    <div>
-      <Title />
-      <Navigator />
-      <SearchBar />
-      <ItemList />
-    </div>
+    <>
+      {mCategory && mId && <DetailModal category={mCategory} id={mId} />}
+
+      <MainContainer>
+        <MainWrapper>
+          <Title />
+          <Navigator category={category} setCategory={setCategory} />
+          <SearchBar searchWordRef={searchWordRef} searchItem={searchItem} />
+          <ItemList category={category} />
+        </MainWrapper>
+      </MainContainer>
+    </>
   );
 };
+
+const MainContainer = styled.main`
+  margin: 0 auto;
+  padding: 4rem;
+`;
+const MainWrapper = styled.div`
+  background: white;
+  box-shadow: 0 4px 20px #2445b426;
+  padding: 2rem;
+  margin: 0 2rem;
+  border-radius: 2rem;
+`;
 
 export default Main;
