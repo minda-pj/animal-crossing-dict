@@ -8,7 +8,7 @@ import ItemList from "./ItemList";
 import styled from "styled-components";
 import { useSearchParams } from "next/navigation";
 import { DetailModal } from "./DetailModal";
-import useGetFishes from "@/query/useGetFish";
+import useGetFishes from "@/query/useGetFishes";
 import useGetFossils from "@/query/useGetFossils";
 import useGetBugs from "@/query/useGetBugs";
 import useGetVillagers from "@/query/useGetVillagers";

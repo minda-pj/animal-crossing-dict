@@ -22,8 +22,8 @@ import {
 } from "../styles/DetailModal.styles";
 import { X, Leaf } from "lucide-react";
 import useGetBug from "@/query/useGetBug";
-import useGetFishes from "@/query/useGetFish";
 import useGetFossil from "@/query/useGetFossil";
+import useGetFish from "@/query/useGetFish";
 
 interface DetailModalPorps {
   category: string;
@@ -34,6 +34,7 @@ export const DetailModal = ({ category, id }: DetailModalPorps) => {
   const [detailInfo, setDetailInfo] = useState(null);
 
   useEffect(() => {
+    console.log(category, id);
     fetchDetail(category, id);
   }, []);
 
@@ -43,7 +44,7 @@ export const DetailModal = ({ category, id }: DetailModalPorps) => {
         case "bug":
           return useGetBug(id);
         case "fish":
-          return useGetFishes(id);
+          return useGetFish(id);
         case "fossils":
           return useGetFossil(id);
       }
@@ -94,17 +95,13 @@ export const DetailModal = ({ category, id }: DetailModalPorps) => {
               </DetailInfoTextLi>
               <DetailInfoTextLi>
                 <DetailInfoText>
-                  <DetailInfoTextBold>
-                    Northern Hemisphere Appearance Month:
-                  </DetailInfoTextBold>
+                  <DetailInfoTextBold>Northern Hemisphere Appearance Month:</DetailInfoTextBold>
                   January - December
                 </DetailInfoText>
               </DetailInfoTextLi>
               <DetailInfoTextLi>
                 <DetailInfoText>
-                  <DetailInfoTextBold>
-                    Southern Hemisphere Appearance Month:
-                  </DetailInfoTextBold>
+                  <DetailInfoTextBold>Southern Hemisphere Appearance Month:</DetailInfoTextBold>
                   January - December
                 </DetailInfoText>
               </DetailInfoTextLi>
