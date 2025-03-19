@@ -43,10 +43,6 @@ const ItemName = styled.h3`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 const ItemBody = styled.div`
   height: 18rem;
