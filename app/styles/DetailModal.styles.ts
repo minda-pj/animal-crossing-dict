@@ -67,7 +67,7 @@ export const DetailModalTitleWrap = styled.div`
 export const DetailModalTitle = styled.h2`
   font-weight: 600;
   font-size: 1.875rem;
-  color: rgb(125, 206, 130);
+  color: ${(props) => (props.color ? props.color : "rgb(125, 206, 130)")};
 `;
 
 export const DetailInfoWrap = styled.div`
@@ -91,7 +91,8 @@ export const DetailInfoImageWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 0.25rem solid rgb(255, 245, 99);
+  border: 0.25rem solid
+    ${(props) => (props.color ? `#${props.color}` : "rgb(255, 245, 99)")};
   border-radius: 62.4375rem;
   box-shadow: 0 4px 20px #2445b426;
   overflow: hidden;

@@ -1,9 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import instance from "@/api";
-
-interface TUseGetVillagers {
-  enabled: boolean;
-}
+import { TUseGetVillagers } from "@/types";
 
 const useGetVillagers = ({ enabled }: TUseGetVillagers) => {
   return useQuery({

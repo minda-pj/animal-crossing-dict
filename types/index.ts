@@ -4,3 +4,7 @@ interface Test {
 }
 
 type TCategory = "villager" | "fish" | "bug" | "fossil";
+
+export interface TUseGetVillagers {
+  enabled: boolean;
+}
