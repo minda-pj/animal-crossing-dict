@@ -2,14 +2,14 @@ import { Search } from "lucide-react";
 import styled from "styled-components";
 
 interface ISearchBar {
-  searchWordRef: HTMLDivElement;
+  ref: any;
   searchItem: () => void;
 }
 
-const SearchBar = ({ searchWordRef, searchItem }: ISearchBar) => {
+const SearchBar = ({ searchItem, ref }: ISearchBar) => {
   return (
     <SearchBarContainer>
-      <SearchBarInput ref={searchWordRef} placeholder="캐릭터, 물고기, 가구, 곤충, 화석을 검색하세요." />
+      <SearchBarInput ref={ref} placeholder="캐릭터, 물고기, 가구, 곤충, 화석을 검색하세요." />
       <SearchBarButton onClick={searchItem}>
         <Search />
         검색

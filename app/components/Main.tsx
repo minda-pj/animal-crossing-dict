@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { RefObject, useRef, useState } from "react";
 import Title from "./Title";
 import Navigator from "./Navigator";
 import SearchBar from "./SearchBar";
@@ -12,7 +12,7 @@ import { DetailModal } from "./DetailModal";
 const Main = () => {
   const searchParams = useSearchParams();
   const [category, setCategory] = useState<TCategory>("villager");
-  const searchWordRef = useRef<HTMLDivElement>(null);
+  const ref = useRef<RefObject<HTMLDivElement> | null>(null);
 
   const mCategory = searchParams.get("category");
   const mId = searchParams.get("id");
@@ -27,7 +27,7 @@ const Main = () => {
         <MainWrapper>
           <Title />
           <Navigator category={category} setCategory={setCategory} />
-          <SearchBar searchWordRef={searchWordRef} searchItem={searchItem} />
+          <SearchBar ref={ref} searchItem={searchItem} />
           <ItemList category={category} />
         </MainWrapper>
       </MainContainer>
