@@ -15,10 +15,10 @@ const ItemList = ({ category }: TItemList) => {
   const { data: bugsData } = useGetBugs({ enabled: category === "bug" });
   const { data: villagersData } = useGetVillagers({ enabled: category === "villager" });
 
-  let fossil = [];
+  const fossil: any[] = [];
   const bugs = bugsData?.data || [];
   const fishes = fishesData?.data || [];
-  fossilsData?.data.forEach((f) => {
+  fossilsData?.data.forEach((f: { fossils: any }) => {
     fossil.push(...f.fossils);
   });
   const villagers = villagersData?.data || [];
@@ -43,7 +43,7 @@ const ItemList = ({ category }: TItemList) => {
 
   return (
     <ItemListContainer>
-      {(data || [])?.map((item) => (
+      {(data || []).map((item: any) => (
         <Item data={item} key={item.url} category={category} />
       ))}
     </ItemListContainer>
