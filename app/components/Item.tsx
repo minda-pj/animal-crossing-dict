@@ -28,7 +28,6 @@ const Item = ({ data, category }: TItem) => {
 const ItemContainer = styled.div`
   border-radius: 2rem;
   background: #7dce82;
-  height: 100%;
   transform: scale(1);
   transition: transform 0.5s ease-in-out;
   &:hover {
@@ -39,7 +38,7 @@ const ItemContainer = styled.div`
 const ItemName = styled.h3`
   color: white;
   font-size: 24px;
-  height: 4rem;
+  min-height: 4rem;
   font-weight: bold;
   display: flex;
   align-items: center;
