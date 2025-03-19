@@ -31,8 +31,6 @@ interface DetailModalPorps {
 }
 
 export const DetailModal = ({ category, id }: DetailModalPorps) => {
-  const [detailInfo, setDetailInfo] = useState(null);
-
   useEffect(() => {
     fetchDetail(category, id);
   }, []);
@@ -94,17 +92,13 @@ export const DetailModal = ({ category, id }: DetailModalPorps) => {
               </DetailInfoTextLi>
               <DetailInfoTextLi>
                 <DetailInfoText>
-                  <DetailInfoTextBold>
-                    Northern Hemisphere Appearance Month:
-                  </DetailInfoTextBold>
+                  <DetailInfoTextBold>Northern Hemisphere Appearance Month:</DetailInfoTextBold>
                   January - December
                 </DetailInfoText>
               </DetailInfoTextLi>
               <DetailInfoTextLi>
                 <DetailInfoText>
-                  <DetailInfoTextBold>
-                    Southern Hemisphere Appearance Month:
-                  </DetailInfoTextBold>
+                  <DetailInfoTextBold>Southern Hemisphere Appearance Month:</DetailInfoTextBold>
                   January - December
                 </DetailInfoText>
               </DetailInfoTextLi>
