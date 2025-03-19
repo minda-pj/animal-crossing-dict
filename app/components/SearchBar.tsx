@@ -30,7 +30,7 @@ const SearchBarInput = styled.input`
   background: white;
   border-radius: 2rem;
   padding: 12px 24px;
-  height: 40px;
+  height: 1rem;
   flex: 1;
   &:focus {
     border-color: grey;
@@ -38,6 +38,8 @@ const SearchBarInput = styled.input`
   }
 `;
 const SearchBarButton = styled.button`
+  border: solid transparent 5px;
+  height: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;

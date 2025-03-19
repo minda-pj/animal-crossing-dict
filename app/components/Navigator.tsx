@@ -35,6 +35,7 @@ const NavigatorContainer = styled.div`
   margin: 0 0 2rem;
 `;
 const NavigatorButton = styled.button<{ $active: boolean }>`
+  border: solid transparent 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,11 +44,13 @@ const NavigatorButton = styled.button<{ $active: boolean }>`
   border-radius: 2rem;
   height: 2.5rem;
   padding: 0.5rem 1rem;
+  background-color: transparent;
   background: ${({ $active }) => $active && "#7dce82"};
   color: ${({ $active }) => ($active ? "white" : "#7dce82")};
   animation-duration: 200ms;
   transition-duration: 200ms;
   &:hover {
+    cursor: pointer;
     background: ${({ $active }) => ($active ? "black" : "#7dce82")};
     color: white;
   }
