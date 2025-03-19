@@ -25,6 +25,10 @@ const Main = () => {
   const { data: bugsData } = useGetBugs({ enabled: category === "bug" });
   const { data: villagersData } = useGetVillagers({ enabled: category === "villager" });
 
+  useEffect(() => {
+    setSearchData(null);
+  }, [category]);
+
   let fossil = [];
   const bugs = bugsData?.data || [];
   const fishes = fishesData?.data || [];
@@ -50,10 +54,6 @@ const Main = () => {
     default:
       return null;
   }
-
-  useEffect(() => {
-    setSearchData(null);
-  }, [category]);
 
   const mCategory = searchParams.get("category");
   const mId = searchParams.get("id");
