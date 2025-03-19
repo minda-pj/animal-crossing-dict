@@ -15,7 +15,7 @@ const Item = ({ data, category }: TItem) => {
 
   return (
     <ItemContainer onClick={handleClick}>
-      <ItemName>{data.name}</ItemName>
+      <ItemName>{data.name.length > 10 ? `${data.name.substring(0, 10)}...` : data.name}</ItemName>
       <ItemBody>
         <ItemImageWrapper>
           <ItemImage src={data.image_url} width={120} height={120} alt={"image"} />
